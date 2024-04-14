@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  background: url("https://images.unsplash.com/photo-1500829243541-74b677fecc30?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+}
+
+h1 {
+  letter-spacing: 8px;
+  font-size: 3.5vw;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.Clock {
+  font-size: 3vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Clock div {
+  position: relative;
+  margin: 5px;
+  flex: 1;
+}
+
+.Clock span {
+  height: 15vw;
+  width: 20vw;
+  background: rgba(4, 238, 82, 0.397);
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+}
+
+.Clock .text {
+  height: 5vw;
+  font-size: 1.5vw;
+  background: rgb(12, 12, 12);
+  letter-spacing: 0.5vw;
+  text-transform: uppercase;
+  color: rgb(248, 243, 243);
+  opacity: 0.8;
+}
+
+.Clock .ampm {
+  position: absolute;
+  bottom: 0;
+  width: 10vw;
+  height: 5vw;
+  font-size: 3vw;
+  background: green;
+}
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 8vw;
+  }
+
+  .Clock {
+    font-size: 6vw;
+  }
+
+  .Clock span {
+    height: 20vw;
+    width: 25vw;
+    font-size: 8vw;
+  }
+
+  .Clock .text {
+    height: 7vw;
+    font-size: 3vw;
+    letter-spacing: 1vw;
+  }
+
+  .Clock .ampm {
+    width: 15vw;
+    height: 7vw;
+    font-size: 5vw;
+  }
+}
