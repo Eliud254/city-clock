@@ -26,7 +26,7 @@ function updateClock() {
 }
 
 function updateCity(latitude, longitude) {
-  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=b115e3ac03c14d1caab1365e2f751b51`)
+  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=('b115e3ac03c14d1caab1365e2f751b51`)
     .then(response => response.json())
     .then(data => {
       const city = data.results[0].components.city;
@@ -34,7 +34,7 @@ function updateCity(latitude, longitude) {
     })
     .catch(error => {
       console.error('Error fetching city:', error);
-      cityElement.innerText = 'Nairobi';
+      cityElement.innerText = 'unknown';
     });
 }
 
@@ -46,11 +46,11 @@ function getLocation() {
       updateCity(latitude, longitude);
     }, error => {
       console.error('Error getting location:', error);
-      cityElement.innerText = 'Nairobi';
+      cityElement.innerText = 'unknown';
     });
   } else {
     console.error('Geolocation is not supported by this browser.');
-    cityElement.innerText = 'Nairobi';
+    cityElement.innerText = 'unknown';
   }
 }
 
