@@ -26,7 +26,7 @@ function updateClock() {
 }
 
 function updateCity(latitude, longitude) {
-  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=('b115e3ac03c14d1caab1365e2f751b51`)
+  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=b115e3ac03c14d1caab1365e2f751b51`)
     .then(response => response.json())
     .then(data => {
       const city = data.results[0].components.city;
