@@ -48,5 +48,5 @@ The City Clock App is a web application that displays the current time along wit
 - ipinfo.io API
 
 ## Credits
-
+Link: https://eliud254.github.io/city-clock
 The City Clock App was created by Eliud Obure
