@@ -11,10 +11,11 @@ function updateClock() {
   let s = now.getSeconds();
   let ampm = "AM";
 
-  if (h > 12) {
-    h = h - 12;
+  if (h >= 12) {
     ampm = "PM";
   }
+
+  h = h % 12 || 12; // Convert to 12-hour format
 
   m = (m < 10) ? "0" + m : m;
   s = (s < 10) ? "0" + s : s;
@@ -25,11 +26,11 @@ function updateClock() {
   ampmElement.innerText = ampm;
 }
 
-function updateCity(latitude, longitude) {
-  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=b115e3ac03c14d1caab1365e2f751b51`)
+function updateCity() {
+  fetch("https://ipinfo.io/json?token=992fda8a94a6ce")
     .then(response => response.json())
     .then(data => {
-      const city = data.results[0].components.city;
+      const city = data.city;
       cityElement.innerText = city;
     })
     .catch(error => {
@@ -39,19 +40,7 @@ function updateCity(latitude, longitude) {
 }
 
 function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      updateCity(latitude, longitude);
-    }, error => {
-      console.error('Error getting location:', error);
-      cityElement.innerText = 'unknown';
-    });
-  } else {
-    console.error('Geolocation is not supported by this browser.');
-    cityElement.innerText = 'unknown';
-  }
+  updateCity(); // No need to use geolocation, as ipinfo.io provides city information based on IP address
 }
 
 updateClock();
