@@ -31,7 +31,9 @@ function updateCity() {
     .then(response => response.json())
     .then(data => {
       const city = data.city;
-      cityElement.innerText = city;
+      const country = data.country; // Retrieve country from API response
+      const location = `${city}, ${country}`; // Concatenate city and country
+      cityElement.innerText = location;
     })
     .catch(error => {
       console.error('Error fetching city:', error);
